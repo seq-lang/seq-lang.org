@@ -1,0 +1,6 @@
+dna = s'ACGTGG'
+print dna
+kmer = Kmer[6](dna)
+print kmer
+protein = translate(dna)
+print protein

@@ -1,0 +1,653 @@
+<!DOCTYPE HTML>
+<!--
+    Projection by TEMPLATED
+    templated.co @templatedco
+    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+    <head>
+        <title>Seq • Performance</title>
+        <style type="text/css" media="screen">
+            .chart-container {
+                float: left;
+                width: 75%;
+                height: 480px;
+                padding: 5px 5px 5px 5px;
+                margin-bottom: 40px;
+            }
+
+            .chart-info {
+                text-align: left;
+                float: left;
+                width: 25%;
+                height: 480px;
+                padding: 100px 5px 5px 5px;
+                margin-bottom: 40px;
+                overflow: hidden;
+            }
+
+            .chart-pane {
+            }
+
+            button.gotosource {
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                -ms-appearance: none;
+                appearance: none;
+                -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+                -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+                -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+                transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+                background-color: transparent;
+                box-shadow: inset 0 0 0 3px #ffffff;
+                color: #000000 !important;
+                border-radius: 15px;
+                border: 0;
+                cursor: pointer;
+                display: inline-block;
+                font-size: .75em;
+                font-weight: 400;
+                height: 3.75em;
+                line-height: 3em;
+                letter-spacing: 2px;
+                padding: 0 2em;
+                text-align: center;
+                text-decoration: none;
+                text-transform: uppercase;
+                white-space: nowrap;
+            }
+
+            button.gotosource:hover {
+                background-color: #e6e6e6;
+            }
+
+            div.sourcebutton {
+                text-align: center;
+            }
+
+            div.info {
+                width: 80%;
+                margin: 0 auto;
+            }
+        </style>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+    </head>
+    <body class="subpage">
+
+        <!-- Header -->
+            <header id="header">
+                <div class="inner">
+                    <a href="index.html" class="logo">the <strong>Seq</strong> programming language</a>
+                    <nav id="nav">
+                        <a class="navitem" href="index.html">Docs</a>
+                        <a class="navitem" href="https://github.com/seq-lang/seq">GitHub</a>
+                        <a class="navitem" href="index.html">Blog</a>
+                    </nav>
+                    <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+                </div>
+            </header>
+
+        <!-- Main -->
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="image round">
+                        <img src="images/dragon.png" width="175" height="175" style="padding: 10px" alt="LLVM dragon" />
+                    </div>
+                    <header class="align-center">
+                        <h2>Performance</h2>
+                    </header>
+                    <div class="info">
+                        Unlike CPython, Seq compiles to LLVM IR, which in turn compiles to native machine code. Because of this,
+                        Seq's performance is usually comparable to that of C or C++, and can often be even <i>better</i> once
+                        domain-specific compiler optimizations are applied. The Seq compiler performs static type checking, which
+                        avoids the cost of checking types at runtime that most other Python implementations incur.
+
+                        <br /><br />
+
+                        Below are several real-world benchmarks showing Seq's performance compared to hand-optimized tools.
+                    </div>
+
+                    <hr />
+
+                    <div class="chart-pane">
+                        <div class="chart-info">
+                            <a href="https://en.wikipedia.org/wiki/Smith–Waterman_algorithm">Smith-Waterman alignment</a> is a standard algorithm
+                            used in many genomics applications. This benchmark consists of aligning sequences as part of long-read mapping, and
+                            compares Seq with <a href="https://github.com/lh3/minimap2">minimap2</a>. The Seq implementation makes use of the
+                            compiler's inter-sequence alignment optimization to attain better performance.
+
+                            <br />
+
+                            <div class="sourcebutton">
+                                <button class="gotosource" onclick="location.href='https://github.com/seq-lang/seq/blob/develop/test/apps/minimap2/sw.seq'">
+                                    <i class="fab fa-github"></i> View Source
+                                </button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="swChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-pane">
+                        <div class="chart-info">
+                            Global alignment is an important algorithm in comparative genomics and related fields. This benchmark implements
+                            the popular <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC430967/">AVID</a> global alignment tool in Seq and
+                            compares its performance with the original.
+
+                            <br />
+
+                            <div class="sourcebutton">
+                                <button class="gotosource" onclick="">
+                                    <i class="fab fa-github"></i> View Source
+                                </button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="gaChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-pane">
+                        <div class="chart-info">
+                            <a href="https://github.com/denizy/cora">CORA</a> is an all-mapping tool for WGS short-reads
+                            that exploits redundancies in the genome to find all mappings of a read. This benchmark implements CORA's index
+                            ("homology table") construction step in Seq.
+
+                            <br />
+
+                            <div class="sourcebutton">
+                                <button class="gotosource" onclick="location.href='https://github.com/seq-lang/seq/blob/develop/test/apps/cora'">
+                                    <i class="fab fa-github"></i> View Source
+                                </button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="htChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-pane">
+                        <div class="chart-info">
+                            <a href="https://github.com/sfu-compbio/mrsfast">mrsFAST</a> is a perfect-sensitivity all-mapping tool based on Hamming
+                            distance. This benchmark implements mrsFAST's single-end read mapping algorithm in Seq (chr1 results), as well as an
+                            alternative version using an FM-index with Seq's prefetch optimization (hg19 results).
+
+                            <br />
+
+                            <div class="sourcebutton">
+                                <button class="gotosource" onclick="location.href='https://github.com/seq-lang/seq/blob/develop/test/apps/mrsfast'">
+                                    <i class="fab fa-github"></i> View Source
+                                </button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="mfChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-pane">
+                        <div class="chart-info">
+                            Data preprocessing has become an increasingly time-consuming step in the genomics analysis pipeline. This benchmark
+                            implements in Seq a standard preprocessing task,
+                            <a href="https://gatk.broadinstitute.org/hc/en-us/articles/360036858811-SplitNCigarReads">GATK's <i>SplitNCigarReads</i></a>,
+                            and compares performance on several datasets.
+
+                            <br />
+
+                            <div class="sourcebutton">
+                                <button class="gotosource" onclick="location.href=''">
+                                    <i class="fab fa-github"></i> View Source
+                                </button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="rnChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-pane">
+                        <div class="chart-info">
+                            "Super-Maximal Exact Matches" (SMEMs) are a central component of many genomics algorithms, ranging from alignment to
+                            assembly. This benchmark implements <a href="https://github.com/lh3/bwa">BWA-MEM</a>'s SMEM algorithm in Seq. Seq's
+                            prefetch optimization leads to better performance.
+
+                            <br />
+
+                            <div class="sourcebutton">
+                                <button class="gotosource" onclick="location.href='https://github.com/seq-lang/seq/blob/develop/test/apps/bwa/fastmap.seq'">
+                                    <i class="fab fa-github"></i> View Source
+                                </button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="smChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-pane">
+                        <div class="chart-info">
+                            <a href="https://en.wikipedia.org/wiki/Haplotype_estimation">Haplotype phasing</a> is a downstream analysis that can
+                            provide numerous biological insights beyond raw genotypes alone.
+                            <a href="https://www.nature.com/articles/s41467-020-18320-z">HapTree-X</a> is a phasing algorithm implemented entirely
+                            in Seq, whose performance is benchmarked here relative to several widely-used phasing tools.
+
+                            <br />
+
+                            <div class="sourcebutton">
+                                <button class="gotosource" onclick="location.href='https://github.com/0xTCG/haptreex'">
+                                    <i class="fab fa-github"></i> View Source
+                                </button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="phChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        <!-- Footer -->
+            <footer id="footer">
+                <div class="inner">
+                    <div class="copyright">
+                        &copy; 2020 Seq Lang. All Rights Reserved. Design: <a href="https://templated.co">TEMPLATED</a>
+                    </div>
+                </div>
+            </footer>
+
+        <!-- Scripts -->
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/skel.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+            <script type="text/javascript">
+                var ctx1 = document.getElementById("swChart").getContext("2d");
+
+                var data1 = {
+                  labels: ["CIGAR (all)", "No CIGAR (all)", "CIGAR (lim. 512)", "No CIGAR (lim. 512)"],
+                  datasets: [{
+                    label: "minimap2 (SSE4)",
+                    backgroundColor: "#e41a1c",
+                    data: [2123.68, 1767.34, 1048.09, 904.754]
+                  }, {
+                    label: "Seq inter opt. (SSE4)",
+                    backgroundColor: "#377eb8",
+                    data: [1739.41, 1336.05, 811.323, 508.88]
+                  }, {
+                    label: "Seq inter opt. (AVX2)",
+                    backgroundColor: "#4daf4a",
+                    data: [1396.44, 1111.68, 474.595, 293.146]
+                  }, {
+                    label: "Seq inter opt. (AVX-512)",
+                    backgroundColor: "#984ea3",
+                    data: [1292.34, 1054.25, 330.616, 199.285]
+                  }]
+                };
+
+                var chart1 = new Chart(ctx1, {
+                  type: 'bar',
+                  data: data1,
+                  options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    title: {
+                      display: true,
+                      text: 'Smith-Waterman alignment',
+                      fontSize: 25
+                    },
+                    barValueSpacing: 20,
+                    scales: {
+                      yAxes: [{
+                        ticks: {
+                          min: 0,
+                        },
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Runtime (s)',
+                          fontSize: 15
+                        }
+                      }],
+                      xAxes: [{
+                        ticks: {
+                            fontSize: 15
+                        }
+                      }]
+                    },
+                    legend: {
+                      display: true,
+                      labels: {
+                        fontSize: 15
+                      }
+                    }
+                  }
+                });
+
+                var ctx2 = document.getElementById("gaChart").getContext("2d");
+
+                var data2 = {
+                  labels: ["90% similarity", "70% similarity"],
+                  datasets: [{
+                    label: "AVID",
+                    backgroundColor: "#e41a1c",
+                    data: [2717.09, 2635.30]
+                  }, {
+                    label: "Seq",
+                    backgroundColor: "#377eb8",
+                    data: [2036.13, 1919.51]
+                  }]
+                };
+
+                var chart2 = new Chart(ctx2, {
+                  type: 'bar',
+                  data: data2,
+                  options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    title: {
+                      display: true,
+                      text: 'Global alignment',
+                      fontSize: 25
+                    },
+                    barValueSpacing: 20,
+                    scales: {
+                      yAxes: [{
+                        ticks: {
+                          min: 0,
+                        },
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Runtime (s)',
+                          fontSize: 15
+                        }
+                      }],
+                      xAxes: [{
+                        ticks: {
+                            fontSize: 15
+                        }
+                      }]
+                    },
+                    legend: {
+                      display: true,
+                      labels: {
+                        fontSize: 15
+                      }
+                    }
+                  }
+                });
+
+                var ctx3 = document.getElementById("htChart").getContext("2d");
+
+                var data3 = {
+                  labels: ["Exact", "Inexact (48 threads)"],
+                  datasets: [{
+                    label: "CORA",
+                    backgroundColor: "#e41a1c",
+                    data: [8112.0, 63720.0]
+                  }, {
+                    label: "Seq",
+                    backgroundColor: "#377eb8",
+                    data: [1260.0, 13212.0]
+                  }]
+                };
+
+                var chart3 = new Chart(ctx3, {
+                  type: 'bar',
+                  data: data3,
+                  options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    title: {
+                      display: true,
+                      text: 'Homology table construction',
+                      fontSize: 25
+                    },
+                    barValueSpacing: 20,
+                    scales: {
+                      yAxes: [{
+                        ticks: {
+                          min: 0,
+                        },
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Runtime (s)',
+                          fontSize: 15
+                        }
+                      }],
+                      xAxes: [{
+                        ticks: {
+                            fontSize: 15
+                        }
+                      }]
+                    },
+                    legend: {
+                      display: true,
+                      labels: {
+                        fontSize: 15
+                      }
+                    }
+                  }
+                });
+
+                var ctx4 = document.getElementById("mfChart").getContext("2d");
+
+                var data4 = {
+                  labels: ["chr1, thresh. 2", "hg19, thresh. 0"],
+                  datasets: [{
+                    label: "mrsFAST",
+                    backgroundColor: "#e41a1c",
+                    data: [978.8, 4044.0]
+                  }, {
+                    label: "Seq",
+                    backgroundColor: "#377eb8",
+                    data: [677.3, 1310.2]
+                  }]
+                };
+
+                var chart4 = new Chart(ctx4, {
+                  type: 'bar',
+                  data: data4,
+                  options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    title: {
+                      display: true,
+                      text: 'Hamming distance-based all-mapping',
+                      fontSize: 25
+                    },
+                    barValueSpacing: 20,
+                    scales: {
+                      yAxes: [{
+                        ticks: {
+                          min: 0,
+                        },
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Runtime (s)',
+                          fontSize: 15
+                        }
+                      }],
+                      xAxes: [{
+                        ticks: {
+                            fontSize: 15
+                        }
+                      }]
+                    },
+                    legend: {
+                      display: true,
+                      labels: {
+                        fontSize: 15
+                      }
+                    }
+                  }
+                });
+
+                var ctx5 = document.getElementById("rnChart").getContext("2d");
+
+                var data5 = {
+                  labels: ["Cytosol", "Whole cell", "GIAB", "K562"],
+                  datasets: [{
+                    label: "GATK",
+                    backgroundColor: "#e41a1c",
+                    data: [60889.56, 54662.98, 10946.02, 33288.27]
+                  }, {
+                    label: "Seq",
+                    backgroundColor: "#377eb8",
+                    data: [5925.54, 8600.10, 1164.69, 3796.61]
+                  }]
+                };
+
+                var chart5 = new Chart(ctx5, {
+                  type: 'bar',
+                  data: data5,
+                  options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    title: {
+                      display: true,
+                      text: 'RNA-seq read preprocessing',
+                      fontSize: 25
+                    },
+                    barValueSpacing: 20,
+                    scales: {
+                      yAxes: [{
+                        ticks: {
+                          min: 0,
+                        },
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Runtime (s)',
+                          fontSize: 15
+                        }
+                      }],
+                      xAxes: [{
+                        ticks: {
+                            fontSize: 15
+                        }
+                      }]
+                    },
+                    legend: {
+                      display: true,
+                      labels: {
+                        fontSize: 15
+                      }
+                    }
+                  }
+                });
+
+                var ctx6 = document.getElementById("smChart").getContext("2d");
+
+                var data6 = {
+                  labels: ["BWA-MEM", "Seq", "Seq (prefetch)"],
+                  datasets: [{
+                    label: "Runtime",
+                    backgroundColor: "#e41a1c",
+                    data: [62.19, 50.53, 28.83]
+                  }]
+                };
+
+                var chart6 = new Chart(ctx6, {
+                  type: 'bar',
+                  data: data6,
+                  options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    title: {
+                      display: true,
+                      text: 'Finding SMEMs',
+                      fontSize: 25
+                    },
+                    barValueSpacing: 20,
+                    scales: {
+                      yAxes: [{
+                        ticks: {
+                          min: 0,
+                        },
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Runtime (s)',
+                          fontSize: 15
+                        }
+                      }],
+                      xAxes: [{
+                        ticks: {
+                            fontSize: 15
+                        }
+                      }]
+                    },
+                    legend: {
+                      display: false,
+                      labels: {
+                        fontSize: 15
+                      }
+                    }
+                  }
+                });
+
+                var ctx7 = document.getElementById("phChart").getContext("2d");
+
+                var data7 = {
+                  labels: ["RNA-seq", "WXS", "WGS", "10X"],
+                  datasets: [{
+                    label: "HapCUT",
+                    backgroundColor: "#e41a1c",
+                    data: [183.0, 1546.0, null, null]
+                  }, {
+                    label: "phASER",
+                    backgroundColor: "#377eb8",
+                    data: [68.0, 1463.0, null, null]
+                  }, {
+                    label: "HapCUT2",
+                    backgroundColor: "#4daf4a",
+                    data: [90.0, 777.0, 6481.0, 83405.0]
+                  }, {
+                    label: "HapTree-X (Seq)",
+                    backgroundColor: "#984ea3",
+                    data: [54.0, 539.0, 2417.0, 6845.0]
+                  }]
+                };
+
+                var chart7 = new Chart(ctx7, {
+                  type: 'bar',
+                  data: data7,
+                  options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    title: {
+                      display: true,
+                      text: 'Haplotype phasing (log scale)',
+                      fontSize: 25
+                    },
+                    barValueSpacing: 20,
+                    scales: {
+                      yAxes: [{
+                        type: 'logarithmic',
+                        ticks: {
+                          min: 0,
+                        },
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Runtime (s)',
+                          fontSize: 15
+                        }
+                      }],
+                      xAxes: [{
+                        ticks: {
+                            fontSize: 15
+                        }
+                      }]
+                    },
+                    legend: {
+                      display: true,
+                      labels: {
+                        fontSize: 15
+                      }
+                    }
+                  }
+                });
+            </script>
+    </body>
+</html>

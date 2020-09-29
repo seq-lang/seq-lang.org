@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<!--
+    Projection by TEMPLATED
+    templated.co @templatedco
+    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+    <head>
+        <title>Seq • Syntax</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+    </head>
+    <body class="subpage">
+
+        <!-- Header -->
+            <header id="header">
+                <div class="inner">
+                    <a href="index.html" class="logo">the <strong>Seq</strong> programming language</a>
+                    <nav id="nav">
+                        <a class="navitem" href="index.html">Docs</a>
+                        <a class="navitem" href="https://github.com/seq-lang/seq">GitHub</a>
+                        <a class="navitem" href="index.html">Blog</a>
+                    </nav>
+                    <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+                </div>
+            </header>
+
+        <!-- Main -->
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <div class="image round">
+                        <img src="images/python.svg" width="175" height="175" style="padding: 10px" alt="Python logo" />
+                    </div>
+                    <header class="align-center">
+                        <h2>Syntax</h2>
+                    </header>
+                    <div class="info">
+                        Seq's syntax and semantics are borrowed from the popular and widely-used <a href="https://python.org">Python</a> language.
+                        In fact, a lot of Python code will run without changes in Seq&mdash;and a lot faster! Seq is designed to be as seamless a
+                        language to learn as possible, especially for those familiar with Python.
+
+                        <br />
+                        <br />
+
+                        Press <kbd>&#8679; Shift</kbd>+<kbd>&#8629; Enter</kbd> on any of the snippets below to try them!
+                    </div>
+
+                    <hr />
+
+                    <div class="snippet-pane">
+                        <div class="snippet-info">
+                            <i class="fa fa-check"></i> Python's familiar syntax
+                        </div>
+                        <div class="snippet-code">
+                            <div class="snippet" id="snippet1"></div>
+                        </div>
+                    </div>
+
+
+                    <div class="snippet-pane">
+                        <div class="snippet-info">
+                            <i class="fa fa-check"></i> Optional type annotations
+                        </div>
+                        <div class="snippet-code">
+                            <div class="snippet" id="snippet2"></div>
+                        </div>
+                    </div>
+
+                    <div class="snippet-pane">
+                        <div class="snippet-info">
+                            <i class="fa fa-check"></i> Intuitive generic types
+                        </div>
+                        <div class="snippet-code">
+                            <div class="snippet" id="snippet3"></div>
+                        </div>
+                    </div>
+
+                    <div class="snippet-pane">
+                        <div class="snippet-info">
+                            <i class="fa fa-check"></i> New language features and types
+                        </div>
+                        <div class="snippet-code">
+                            <div class="snippet" id="snippet4"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        <!-- Footer -->
+            <footer id="footer">
+                <div class="inner">
+                    <div class="copyright">
+                        &copy; 2020 Seq Lang. All Rights Reserved. Design: <a href="https://templated.co">TEMPLATED</a>
+                    </div>
+                </div>
+            </footer>
+
+        <!-- Scripts -->
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/skel.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+            <script src="assets/js/ace/ace.js"></script>
+            <script src="assets/js/editors.js"></script>
+            <script type="text/javascript">
+                e1 = newEditor("snippet1");
+                setEditor(e1, "samples/snippets/fib.seq");
+
+                e2 = newEditor("snippet2");
+                setEditor(e2, "samples/snippets/types.seq");
+
+                e3 = newEditor("snippet3");
+                setEditor(e3, "samples/snippets/generics.seq");
+
+                e4 = newEditor("snippet4");
+                setEditor(e4, "samples/snippets/new.seq");
+            </script>
+    </body>
+</html>

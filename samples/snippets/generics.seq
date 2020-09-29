@@ -1,0 +1,6 @@
+class Node[T]:
+  data: T
+  next: Node[T]
+  def __iter__(self: Node[T]) -> T:
+    yield self.data
+    if self.next: yield from self.next

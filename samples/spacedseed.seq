@@ -1,0 +1,11 @@
+def has_spaced_acgt(s: seq):
+    match s:
+        case s'A_C_G_T...':
+            return True
+        case t if len(t) >= 8:
+            return has_spaced_acgt(s[1:])
+        case _:
+            return False
+
+print has_spaced_acgt(s'AAATCTGTTAAA')
+print has_spaced_acgt(s'ACGTACGTACGT')

@@ -1,0 +1,7 @@
+# sequences
+s = s'GGATC'
+print ~s
+
+# k-mers
+k = k'GGATC'
+print ~k

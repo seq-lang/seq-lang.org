@@ -1,0 +1,10 @@
+myseq  = s'CAATAGAGACTAAGCATTAT'
+sublen = 5
+stride = 2
+
+# explicit for-loop
+for subseq in myseq.split(sublen, stride):
+    print subseq
+
+# pipelined
+myseq |> split(sublen, stride) |> echo

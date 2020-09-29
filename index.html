@@ -1,0 +1,265 @@
+<!DOCTYPE HTML>
+<!--
+    Projection by TEMPLATED
+    templated.co @templatedco
+    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+    <head>
+        <title>Seq Programming Language</title>
+        <style type="text/css" media="screen">
+            #editor {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+
+            .seqpad {
+                position: relative;
+                margin: 0 auto;
+                height: 375px;
+                width: 50%;
+            }
+
+            #seqtry {
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                -ms-appearance: none;
+                appearance: none;
+                -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+                -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+                -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+                transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+                background-color: transparent;
+                box-shadow: inset 0 0 0 3px #ffffff;
+                color: #ffffff !important;
+                border-radius: 30px;
+                border: 0;
+                cursor: pointer;
+                display: inline-block;
+                font-size: .75em;
+                font-weight: 400;
+                height: 3.75em;
+                line-height: 3.85em;
+                letter-spacing: 2px;
+                padding: 0 4em;
+                text-align: center;
+                text-decoration: none;
+                text-transform: uppercase;
+                white-space: nowrap;
+            }
+
+            #seqtry:hover {
+                background-color: #559edd;
+            }
+
+            .quicklinks {
+                display: flex;
+                justify-content: center;
+                flex-direction: row;
+                position: relative;
+                margin: 0 auto;
+                height: auto;
+                text-align: center;
+            }
+
+            .quicklink {
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                -ms-appearance: none;
+                appearance: none;
+                -moz-transition: color 0.2s ease-in-out, color 0.2s ease-in-out;
+                -webkit-transition: color 0.2s ease-in-out, color 0.2s ease-in-out;
+                -ms-transition: color 0.2s ease-in-out, color 0.2s ease-in-out;
+                transition: color 0.2s ease-in-out, color 0.2s ease-in-out;
+                float: left;
+                padding-left: 35px;
+                padding-right: 35px;
+            }
+
+            .quicklink:hover {
+                color: #666666;
+                cursor: pointer;
+            }
+        </style>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+    </head>
+    <body>
+
+        <!-- Header -->
+            <header id="header">
+                <div class="inner">
+                    <a href="index.html" class="logo">the <strong>Seq</strong> programming language</a>
+                    <!-- <a href="index.html" class="logo"><img src="images/logo.png" width="50" height="50" alt="Seq logo" /></a> -->
+                    <nav id="nav">
+                        <a class="navitem" href="index.html">Docs</a>
+                        <a class="navitem" href="https://github.com/seq-lang/seq">GitHub</a>
+                        <a class="navitem" href="elements.html">Blog</a>
+                    </nav>
+                </div>
+            </header>
+
+        <!-- Banner -->
+            <section id="banner">
+                <div class="inner">
+                    <header>
+                        <h1>a Python dialect for bioinformatics</h1>
+                    </header>
+
+                    <div class="seqpad" onclick="editorClick();">
+                        <div id="editor"></div>
+                    </div>
+
+                    <br />
+
+                    <button onclick="trySeq()" id="seqtry">Try it!</button>
+                </div>
+            </section>
+
+        <!-- Three -->
+            <section id="three" class="wrapper align-center">
+                <div class="inner">
+                    <div class="flex flex-3">
+                        <article>
+                            <div class="image round">
+                                <img src="images/python.svg" width="175" height="175" style="padding: 10px" alt="Python logo" />
+                            </div>
+                            <header>
+                                <h3>Syntax</h3>
+                            </header>
+                            <p>Python's familiar syntax, semantics and library features</p>
+                            <footer>
+                                <a href="syntax.html" class="button">Learn More</a>
+                            </footer>
+                        </article>
+                        <article>
+                            <div class="image round">
+                                <img src="images/dragon.png" width="175" height="175" style="padding: 10px" alt="LLVM dragon" />
+                            </div>
+                            <header>
+                                <h3>Performance</h3>
+                            </header>
+                            <p>Compiles to LLVM IR to achieve C-like performance</p>
+                            <footer>
+                                <a href="performance.html" class="button">Learn More</a>
+                            </footer>
+                        </article>
+                        <article>
+                            <div class="image round">
+                                <img src="images/dna.svg" width="175" height="175" style="padding: 10px" alt="DNA" />
+                            </div>
+                            <header>
+                                <h3>Features</h3>
+                            </header>
+                            <p>Domain-specific language features, libraries and types</p>
+                            <footer>
+                                <a href="features.html" class="button">Learn More</a>
+                            </footer>
+                        </article>
+                    </div>
+                </div>
+
+                <hr />
+
+                <h3>Get Seq</h3>
+                <code id="seqinstall" onclick="selectText(this)">wget -O - https://git.io/JU2XK | bash</code>
+                <br />
+                <p>Paste the command above into a macOS or Linux terminal</p>
+
+                <h3>Learn Seq</h3>
+                <div class="quicklinks">
+                    <div class="quicklink" onclick="window.location.href = 'https://docs.seq-lang.org'">
+                        <span class="fa fa-book fa-2x"></span>
+                        <br />
+                        <p>Docs</p>
+                    </div>
+                    <div class="quicklink" onclick="window.location.href = 'https://github.com/seq-lang/seq'">
+                        <span class="fab fa-github fa-2x"></span>
+                        <br />
+                        <p>Source</p>
+                    </div>
+                    <div class="quicklink" onclick="window.location.href = 'https://gitter.im/seq-lang/seq'">
+                        <span class="fab fa-gitter fa-2x"></span>
+                        <br />
+                        <p>Chat</p>
+                    </div>
+                    <div class="quicklink">
+                        <span class="fa fa-graduation-cap fa-2x" onclick="window.location.href = 'publications.html'"></span>
+                        <br />
+                        <p>Papers</p>
+                    </div>
+                </div>
+
+            </section>
+
+        <!-- Footer -->
+            <footer id="footer">
+                <div class="inner">
+                    <div class="copyright">
+                        &copy; 2020 Seq Lang. All Rights Reserved. Design: <a href="https://templated.co">TEMPLATED</a>
+                    </div>
+                </div>
+            </footer>
+
+        <!-- Scripts -->
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/skel.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+            <script src="assets/js/ace/ace.js"></script>
+            <script type="text/javascript">
+                var editor = ace.edit("editor");
+                editor.setTheme("ace/theme/monokai");
+                editor.session.setMode("ace/mode/seq");
+                editor.setShowPrintMargin(false);
+                document.getElementById('editor').style.fontSize='20px';
+
+                var i = 0;
+                var txt = "s = s'ACGTACGT'     # sequence literal\nprint s[2:5]        # subsequence\nprint ~s            # reverse complement\nkmer = Kmer[8](s)   # convert to k-mer\n\n# iterate over length-3 subsequences\n# with step 2\nfor sub in s.split(3, step=2):\nprint sub[-1]  # last base\n\n# iterate over 2-mers with step 1\nfor kmer in sub.kmers[Kmer[2]](step=1):\nprint ~kmer  # '~' also works on k-mers";
+
+                var txt2 = "s = s'ACGTACGT'     # sequence literal\nprint s[2:5]        # subsequence\nprint ~s            # reverse complement\nkmer = Kmer[8](s)   # convert to k-mer\n\n# iterate over length-3 subsequences\n# with step 2\nfor sub in s.split(3, step=2):\n    print sub[-1]  # last base\n\n    # iterate over 2-mers with step 1\n    for kmer in sub.kmers[Kmer[2]](step=1):\n        print ~kmer  # '~' also works on k-mers";
+                var speed = 50; /* The speed/duration of the effect in milliseconds */
+
+                function typeWriter() {
+                    if (0 <= i && i < txt.length) {
+                        editor.insert(txt.charAt(i));
+                        i++;
+                        setTimeout(typeWriter, speed);
+                    } else {
+                        i = -1;
+                    }
+                }
+
+                function editorClick() {
+                    if (i != -1) {
+                        i = -1;
+                        editor.setValue(txt2, 1);
+                    }
+                }
+
+                function selectText(elem) {
+                    if (document.selection) {
+                        var range = document.body.createTextRange();
+                        range.moveToElementText(elem);
+                        range.select();
+                    } else if (window.getSelection) {
+                        var range = document.createRange();
+                        range.selectNode(elem);
+                        window.getSelection().addRange(range);
+                    }
+                }
+
+                function trySeq() {
+                    editorClick();  // make sure we don't take partial input
+                    window.location.href = "demo.html?code=" + encodeURIComponent(editor.getValue());
+                }
+
+                typeWriter();
+            </script>
+
+    </body>
+</html>

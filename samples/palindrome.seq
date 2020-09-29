@@ -1,0 +1,11 @@
+def is_own_revcomp(s: seq) -> bool:
+    match s:
+        case s'A...T' or s'T...A' or s'C...G' or s'G...C':
+            return is_own_revcomp(s[1:-1])
+        case s'':
+            return True
+        case _:
+            return False
+
+print is_own_revcomp(s'ACGT')
+print is_own_revcomp(s'ATTA')

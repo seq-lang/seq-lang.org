@@ -1,0 +1,320 @@
+<!DOCTYPE HTML>
+<!--
+    Projection by TEMPLATED
+    templated.co @templatedco
+    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+    <head>
+        <title>Seq • Playground</title>
+        <style type="text/css" media="screen">
+            #editor {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+
+            #cookbook {
+                height: 250px;
+                overflow: auto;
+            }
+
+            div.cookbook-element {
+                text-align: left;
+            }
+
+            div.cookbook-element:hover {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+
+            div.playground-info {
+                text-align: left;
+                width: 400px;
+            }
+
+            div.seqpad {
+                position: relative;
+                margin: 0 auto;
+                height: 450px;
+                width: 50%;
+            }
+
+            div.editctrl {
+                position: relative;
+                margin: 0 auto;
+                height: 25px;
+                width: 50%;
+            }
+
+            textarea.seqout {
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                -ms-appearance: none;
+                appearance: none;
+                background: #394035;
+                font-family: "Lucida Console", monospace;
+                border-radius: 0px;
+                border: none;
+                color: #fff;
+                display: block;
+                outline: 0;
+                text-decoration: none;
+                width: 50%;
+                margin-left: auto;
+                margin-right: auto;
+                resize: none;
+            }
+
+            .dropdown {
+              position: relative;
+              display: inline-block;
+            }
+
+            .dropdown-content {
+              display: none;
+              position: absolute;
+              background-color: #f9f9f9;
+              min-width: 225px;
+              box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+              padding: 12px 16px;
+              z-index: 1;
+              animation: growDown 300ms ease-in-out forwards;
+              transform-origin: top center;
+            }
+
+            .dropdown:hover .dropdown-content {
+              display: block;
+            }
+
+            button.editor {
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                -ms-appearance: none;
+                appearance: none;
+                -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+                -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+                -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+                transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+                background-color: transparent;
+                box-shadow: inset 0 0 0 3px #ffffff;
+                color: #000000 !important;
+                border-radius: 15px;
+                border: 0;
+                cursor: pointer;
+                display: inline-block;
+                font-size: .75em;
+                font-weight: 400;
+                height: 3.75em;
+                line-height: 3em;
+                letter-spacing: 2px;
+                padding: 0 2em;
+                text-align: left;
+                text-decoration: none;
+                text-transform: uppercase;
+                white-space: nowrap;
+            }
+
+            button.editor:hover {
+                background-color: #e6e6e6;
+            }
+
+            @-moz-keyframes growDown {
+              0% {
+                transform: scaleY(0);
+              }
+              80% {
+                transform: scaleY(1.1);
+              }
+              100% {
+                transform: scaleY(1);
+              }
+            }
+            @-webkit-keyframes growDown {
+              0% {
+                transform: scaleY(0);
+              }
+              80% {
+                transform: scaleY(1.1);
+              }
+              100% {
+                transform: scaleY(1);
+              }
+            }
+            @-o-keyframes growDown {
+              0% {
+                transform: scaleY(0);
+              }
+              80% {
+                transform: scaleY(1.1);
+              }
+              100% {
+                transform: scaleY(1);
+              }
+            }
+            @keyframes growDown {
+              0% {
+                transform: scaleY(0);
+              }
+              80% {
+                transform: scaleY(1.1);
+              }
+              100% {
+                transform: scaleY(1);
+              }
+            }
+        </style>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+    </head>
+    <body class="subpage">
+
+        <!-- Header -->
+            <header id="header">
+                <div class="inner">
+                    <a href="index.html" class="logo"><strong>Seq</strong> playground</a>
+                    <nav id="nav">
+                        <a class="navitem" href="index.html">Docs</a>
+                        <a class="navitem" href="https://github.com/seq-lang/seq">GitHub</a>
+                        <a class="navitem" href="elements.html">Blog</a>
+                    </nav>
+                    <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+                </div>
+            </header>
+
+        <!-- Three -->
+            <section id="three" class="wrapper">
+                <div class="editctrl">
+                    <button class="editor" onclick="execute()" style="float: left;">
+                        <i class="fa fa-cog"></i> Run
+                    </button>
+                    <button class="editor" onclick="clearEditor()" style="float: left;">
+                        <i class="fa fa-times"></i> Clear
+                    </button>
+                    <div class="dropdown" style="float: left;">
+                      <button class="editor">
+                        <i class="fa fa-info"></i> Info
+                      </button>
+                      <div class="dropdown-content">
+                        <div class="playground-info">
+                            Welcome to the Seq playground! Type Seq code in the editor below,
+                            then click the "RUN" button to execute it. Alternatively, select
+                            from one of the examples on the right.
+                            <br />
+                            <br />
+                            Issues or feedback? Let us know <a href="https://github.com/seq-lang/seq/issues">on GitHub</a>.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dropdown" style="float: right;">
+                      <button class="editor">
+                        Examples <i class="fa fa-caret-down"></i>
+                      </button>
+                      <div class="dropdown-content" id="cookbook">
+                        <div class="cookbook-element" onclick="setEditor('samples/basics.seq')">Basics</div>
+                        <div class="cookbook-element" onclick="setEditor('samples/subsequence.seq')">Subsequences</div>
+                        <div class="cookbook-element" onclick="setEditor('samples/kmers.seq')">k-mers</div>
+                        <div class="cookbook-element" onclick="setEditor('samples/revcomp.seq')">Reverse complement</div>
+                        <div class="cookbook-element" onclick="setEditor('samples/hamming.seq')">Hamming distance</div>
+                        <div class="cookbook-element" onclick="setEditor('samples/neighbors.seq')">Hamming neighbors</div>
+                        <div class="cookbook-element" onclick="setEditor('samples/minimizer.seq')">Minimizers</div>
+                        <div class="cookbook-element" onclick="setEditor('samples/debruijn.seq')">de Bruijn edge</div>
+                        <div class="cookbook-element" onclick="setEditor('samples/alignment.seq')">Sequence alignment</div>
+                        <div class="cookbook-element" onclick="setEditor('samples/basecount.seq')">Base counting</div>
+                        <div class="cookbook-element" onclick="setEditor('samples/palindrome.seq')">Palindromes</div>
+                        <div class="cookbook-element" onclick="setEditor('samples/spacedseed.seq')">Spaced seeds</div>
+                        <div class="cookbook-element" onclick="setEditor('samples/proteins.seq')">Protein translation</div>
+                      </div>
+                    </div>
+                </div>
+                <br />
+                <div class="seqpad">
+                    <div id="editor"></div>
+                </div>
+                <br />
+                <div>
+                    <textarea class="seqout" id="result" rows="5" readonly></textarea>
+                </div>
+            </section>
+
+        <!-- Footer -->
+            <footer id="footer">
+                <div class="inner">
+                    <div class="copyright">
+                        &copy; 2020 Seq Lang. All Rights Reserved. Design: <a href="https://templated.co">TEMPLATED</a>
+                    </div>
+                </div>
+            </footer>
+
+        <!-- Scripts -->
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/skel.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+            <script src="assets/js/ace/ace.js"></script>
+            <script type="text/javascript">
+                var editor = ace.edit("editor");
+                editor.setTheme("ace/theme/monokai");
+                editor.setShowPrintMargin(false);
+                editor.session.setMode("ace/mode/seq");
+                document.getElementById('editor').style.fontSize='20px';
+
+                function execute() {
+                    $("#result").html("running...");
+
+                    $.ajax({
+                        url: 'http://157.230.95.210:8000/seq_exec',
+                        dataType: 'text',
+                        type: 'post',
+                        contentType: 'application/json',
+                        data: JSON.stringify({"code": editor.getValue()}),
+                        processData: false,
+                        success: function(data, textStatus, jQxhr) {
+                            // remove error code ANSI colors
+                            var dataClean =
+                              data.replace(/[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g, '');
+                            $("#result").html(dataClean);
+                        },
+                        error: function(jqXhr, textStatus, errorThrown) {
+                            $("#result").html("error: could not communicate with execution server");
+                        }
+                    });
+                }
+
+                editor.commands.addCommand({
+                    name: 'run',
+                    bindKey: {win: 'Shift-Enter',  mac: 'Shift-Enter'},
+                    exec: function(editor) {
+                        execute();
+                    },
+                    readOnly: true
+                });
+
+                function clearEditor() {
+                    editor.setValue("", 1);
+                }
+
+                function setEditor(file) {
+                    let xhr = new XMLHttpRequest();
+                    xhr.open('GET', file, false);
+                    xhr.send(null);
+                    editor.setValue(xhr.responseText, 1);
+                }
+
+                function initEditor() {
+                    var url = new URL(window.location.href);
+                    if (url.searchParams.has("code")) {
+                        editor.setValue(url.searchParams.get("code"), 1);
+                    } else {
+                        setEditor('samples/basics.seq');
+                    }
+                }
+
+                initEditor();
+            </script>
+
+    </body>
+</html>

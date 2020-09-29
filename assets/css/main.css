@@ -21,6 +21,11 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   vertical-align: baseline;
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block;
 }
@@ -1707,6 +1712,7 @@ code {
   margin: 0 0.25em;
   padding: 0.25em 0.65em;
   color: #F9F8F3;
+  overflow: scroll;
 }
 
 pre {

@@ -90,10 +90,10 @@
                 cursor: pointer;
             }
 
-            @media screen and (max-width: 600px) {
-                .seqinstall {
-                    font-size: 1.0em;
-                }
+            .seqinstall {
+                width: 100%;
+                overflow: scroll;
+                white-space: nowrap;
             }
         </style>
         <meta charset="utf-8" />
@@ -178,7 +178,9 @@
                 <hr />
 
                 <h3>Get Seq</h3>
-                <code class="seqinstall" onclick="selectText(this)">wget -O - https://git.io/JU2XK | bash</code>
+                <div class="seqinstall">
+                    <code onclick="selectText(this)">wget -O - https://git.io/JU2XK | bash</code>
+                </div>
                 <br />
                 <p>Paste the command above into a macOS or Linux terminal</p>
 

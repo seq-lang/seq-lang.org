@@ -23,6 +23,12 @@
                 width: 50%;
             }
 
+            @media only screen and (max-width: 600px) {
+                .seqpad {
+                    width: 95%;
+                }
+            }
+
             #seqtry {
                 -moz-appearance: none;
                 -webkit-appearance: none;
@@ -83,6 +89,12 @@
                 color: #666666;
                 cursor: pointer;
             }
+
+            @media screen and (max-width: 600px) {
+                .seqinstall {
+                    font-size: 1.0em;
+                }
+            }
         </style>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -94,12 +106,12 @@
             <header id="header">
                 <div class="inner">
                     <a href="index.html" class="logo">the <strong>Seq</strong> programming language</a>
-                    <!-- <a href="index.html" class="logo"><img src="images/logo.png" width="50" height="50" alt="Seq logo" /></a> -->
                     <nav id="nav">
                         <a class="navitem" href="index.html">Docs</a>
                         <a class="navitem" href="https://github.com/seq-lang/seq">GitHub</a>
-                        <a class="navitem" href="elements.html">Blog</a>
+                        <a class="navitem" href="#">Blog</a>
                     </nav>
+                    <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
                 </div>
             </header>
 
@@ -166,7 +178,7 @@
                 <hr />
 
                 <h3>Get Seq</h3>
-                <code id="seqinstall" onclick="selectText(this)">wget -O - https://git.io/JU2XK | bash</code>
+                <code class="seqinstall" onclick="selectText(this)">wget -O - https://git.io/JU2XK | bash</code>
                 <br />
                 <p>Paste the command above into a macOS or Linux terminal</p>
 

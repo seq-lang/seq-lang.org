@@ -3228,6 +3228,29 @@ a.navitem:hover {
   width: 75%;
 }
 
+@media screen and (max-width: 1500px) {
+  .snippet-info {
+    float: none;
+    width: 100%;
+    padding: 0px 0px 0px 0px;
+    font-size: 18pt;
+    height: auto;
+    line-height: 25px;
+    text-align: center;
+  }
+
+  .snippet-code {
+    float: none;
+    width: 100%;
+    padding: 0px 0px 0px 0px;
+    font-size: 18px;
+  }
+
+  .snippet-pane {
+    width: 97%;
+  }
+}
+
 .fa-check {
   color: green;
 }

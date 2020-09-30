@@ -183,6 +183,36 @@
                 transform: scaleY(1);
               }
             }
+
+            #pg-run {
+                float: left;
+            }
+
+            #pg-clear {
+                float: left;
+            }
+
+            #pg-info {
+                float: left;
+            }
+
+            #pg-examples {
+                float: right;
+            }
+
+            @media only screen and (max-width: 760px) {
+                #pg-info {
+                    display: none;
+                }
+
+                #pg-clear {
+                    display: none;
+                }
+
+                #pg-examples {
+                    float: left;
+                }
+            }
         </style>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -197,7 +227,7 @@
                     <nav id="nav">
                         <a class="navitem" href="index.html">Docs</a>
                         <a class="navitem" href="https://github.com/seq-lang/seq">GitHub</a>
-                        <a class="navitem" href="elements.html">Blog</a>
+                        <a class="navitem" href="demo.html?code=">Demo</a>
                     </nav>
                     <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
                 </div>
@@ -206,13 +236,13 @@
         <!-- Three -->
             <section id="three" class="wrapper">
                 <div class="editctrl">
-                    <button class="editor" onclick="execute()" style="float: left;">
+                    <button id="pg-run" class="editor" onclick="execute()">
                         <i class="fa fa-cog"></i> Run
                     </button>
-                    <button class="editor" onclick="clearEditor()" style="float: left;">
+                    <button id="pg-clear" class="editor" onclick="clearEditor()">
                         <i class="fa fa-times"></i> Clear
                     </button>
-                    <div class="dropdown" style="float: left;">
+                    <div id="pg-info" class="dropdown">
                       <button class="editor">
                         <i class="fa fa-info"></i> Info
                       </button>
@@ -227,7 +257,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="dropdown" style="float: right;">
+                    <div id="pg-examples" class="dropdown">
                       <button class="editor">
                         Examples <i class="fa fa-caret-down"></i>
                       </button>

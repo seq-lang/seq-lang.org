@@ -116,7 +116,7 @@
                     <nav id="nav">
                         <a class="navitem" href="index.html">Docs</a>
                         <a class="navitem" href="https://github.com/seq-lang/seq">GitHub</a>
-                        <a class="navitem" href="#">Blog</a>
+                        <a class="navitem" href="demo.html?code=">Demo</a>
                     </nav>
                     <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
                 </div>
@@ -236,12 +236,11 @@
                 editor.setTheme("ace/theme/monokai");
                 editor.session.setMode("ace/mode/seq");
                 editor.setShowPrintMargin(false);
-                document.getElementById('editor').style.fontSize='20px';
+                document.getElementById('editor').style.fontSize = '20px';
 
                 var i = 0;
-                var txt = "s = s'ACGTACGT'     # sequence literal\nprint s[2:5]        # subsequence\nprint ~s            # reverse complement\nkmer = Kmer[8](s)   # convert to k-mer\n\n# iterate over length-3 subsequences\n# with step 2\nfor sub in s.split(3, step=2):\nprint sub[-1]  # last base\n\n# iterate over 2-mers with step 1\nfor kmer in sub.kmers[Kmer[2]](step=1):\nprint ~kmer  # '~' also works on k-mers";
-
-                var txt2 = "s = s'ACGTACGT'     # sequence literal\nprint s[2:5]        # subsequence\nprint ~s            # reverse complement\nkmer = Kmer[8](s)   # convert to k-mer\n\n# iterate over length-3 subsequences\n# with step 2\nfor sub in s.split(3, step=2):\n    print sub[-1]  # last base\n\n    # iterate over 2-mers with step 1\n    for kmer in sub.kmers[Kmer[2]](step=1):\n        print ~kmer  # '~' also works on k-mers";
+                var txt = "s = s'ACGTACGT'    # sequence literal\nprint s[2:5]       # subsequence\nprint ~s           # reverse complement\nkmer = Kmer[8](s)  # convert to k-mer\n\n# iterate over length-3 subsequences\n# with step 2\nfor sub in s.split(3, step=2):\nprint sub[-1]  # last base\n\n# iterate over 2-mers with step 1\nfor kmer in sub.kmers[Kmer[2]](step=1):\nprint ~kmer  # '~' also works on k-mers";
+                var txt2 = "s = s'ACGTACGT'    # sequence literal\nprint s[2:5]       # subsequence\nprint ~s           # reverse complement\nkmer = Kmer[8](s)  # convert to k-mer\n\n# iterate over length-3 subsequences\n# with step 2\nfor sub in s.split(3, step=2):\n    print sub[-1]  # last base\n\n    # iterate over 2-mers with step 1\n    for kmer in sub.kmers[Kmer[2]](step=1):\n        print ~kmer  # '~' also works on k-mers";
                 var speed = 50; /* The speed/duration of the effect in milliseconds */
 
                 function typeWriter() {
@@ -279,6 +278,11 @@
                 }
 
                 typeWriter();
+
+                container.addEventListener('touchstart', () => {});
+                container.addEventListener('touchend', () => {});
+                container.addEventListener('touchcancel', () => {});
+                container.addEventListener('touchmove', () => {});
             </script>
 
     </body>

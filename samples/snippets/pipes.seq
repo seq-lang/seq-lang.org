@@ -1,6 +1,6 @@
 dna = s'ACGTGG'
 type K = Kmer[2]
-# single-threaded pipeline:
+# serial pipeline:
 dna |> kmers[K](step=1) |> echo
 # parallel pipeline:
 dna |> kmers[K](step=1) ||> echo

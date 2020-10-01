@@ -2850,6 +2850,9 @@ input[type="submit"].disabled, input[type="submit"]:disabled,
 }
 
 /* Nav */
+#nav {
+  float: right;
+}
 
 @media screen and (max-width: 980px) {
 
@@ -2858,10 +2861,31 @@ input[type="submit"].disabled, input[type="submit"]:disabled,
   }
 }
 
-a.navitem:hover {
-  text-decoration: underline!important;
-  text-decoration-thickness: 3px;
-  text-underline-offset: 8px;
+.navitem {
+  margin-left: 35px;
+  text-align: left;
+  position: relative;
+  float: left;
+}
+
+.navitem:hover {
+  cursor: pointer;
+}
+
+.navitem::before {
+  transition: 0.2s;
+  height: 3px;
+  content: "";
+  position: absolute;
+  background-color: #daefe3;
+  width: 100%;
+  bottom: 3px;
+  opacity: 0;
+}
+
+.navitem:hover::before {
+  bottom: 6px;
+  opacity: 1;
 }
 
 #navPanel {
@@ -2897,7 +2921,11 @@ a.navitem:hover {
   visibility: visible;
 }
 
-#navPanel a:not(.close) {
+#navPanel .navitem:not(.close):hover::before {
+  opacity: 0;
+}
+
+#navPanel .navitem:not(.close) {
   border-top: solid 1px #8dcca9;
   color: #daefe3;
   font-weight: 600;
@@ -2905,10 +2933,14 @@ a.navitem:hover {
   padding: 0.75em 0;
   text-decoration: none;
   font-weight: 400;
+  width: 100%;
+  text-align: center;
+  float: none;
+  margin: 0 auto;
 }
 
-#navPanel a:not(.close):first-child {
-  border: none;
+#navPanel .navitem:not(.close):first-child {
+  border-top: none;
 }
 
 #navPanel .close {

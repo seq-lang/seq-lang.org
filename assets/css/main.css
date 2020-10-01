@@ -2921,6 +2921,10 @@ input[type="submit"].disabled, input[type="submit"]:disabled,
   visibility: visible;
 }
 
+#navPanel .navitem:not(.close):hover {
+  font-weight: bold;
+}
+
 #navPanel .navitem:not(.close):hover::before {
   opacity: 0;
 }

@@ -1,7 +1,7 @@
-s = s'ACGTACGT'     # sequence literal
-print s[2:5]        # subsequence
-print ~s            # reverse complement
-kmer = Kmer[8](s)   # convert to k-mer
+s = s'ACGTACGT'    # sequence literal
+print s[2:5]       # subsequence
+print ~s           # reverse complement
+kmer = Kmer[8](s)  # convert to k-mer
 
 # iterate over length-3 subsequences
 # with step 2

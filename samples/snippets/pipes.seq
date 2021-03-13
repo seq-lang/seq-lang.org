@@ -1,5 +1,6 @@
+from bio import *
 dna = s'ACGTGG'
-type K = Kmer[2]
+K = Kmer[2]
 # serial pipeline:
 dna |> kmers[K](step=1) |> echo
 # parallel pipeline:

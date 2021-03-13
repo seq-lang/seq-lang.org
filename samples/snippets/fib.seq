@@ -3,4 +3,5 @@ def fib(n):
     while a < n:
         print a
         a, b = b, a+b
+
 fib(1000)

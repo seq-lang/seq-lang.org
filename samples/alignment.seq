@@ -1,3 +1,5 @@
+from bio import *
+
 # default parameters
 s1 = s'CGCGAGTCTT'
 s2 = s'CGCAGAGTT'

@@ -1,3 +1,4 @@
+from bio import *
 dna = s'ACGTGG'
 print dna
 kmer = Kmer[6](dna)

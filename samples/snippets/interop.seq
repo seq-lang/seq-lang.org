@@ -1,6 +1,6 @@
-cimport sqrt(float) -> float
+from C import sqrt(float) -> float
 print sqrt(100.)
 
-import python
-from my_module pyimport func () -> int
-print func(42, [1, 2, 3], 'foo')
+from python import \
+  mymodule.func(List[int], str) -> int
+print func([1, 2, 3], 'foo')

@@ -1,3 +1,4 @@
+from bio import *
 k1 = k'ACGTC'
 k2 = k'ACTTA'
 #        ^ ^

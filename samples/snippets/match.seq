@@ -1,6 +1,7 @@
-def find(s: seq) -> bool:
+from bio import *
+def find(s):
     match s:
-        case s'A_C_G_T...': return True
+        case 'A_C_G_T*': return True
         case t if len(t) >= 8:
             return find(s[1:])
         case _: return False

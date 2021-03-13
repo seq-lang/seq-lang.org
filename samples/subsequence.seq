@@ -1,3 +1,4 @@
+from bio import *
 myseq  = s'CAATAGAGACTAAGCATTAT'
 sublen = 5
 stride = 2

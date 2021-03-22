@@ -1,5 +1,6 @@
+from bio import *
 myseq  = s'CAATAGAGACTAAGCATTAT'
-type K = Kmer[5]
+K = Kmer[5]
 stride = 2
 
 # explicit for-loop

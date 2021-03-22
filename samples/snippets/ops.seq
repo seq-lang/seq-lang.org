@@ -1,3 +1,4 @@
+from bio import *
 q = s'ACGTA'
 t = s'ACAGT'
 print ~q, ~t  # reverse complement

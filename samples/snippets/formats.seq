@@ -1,6 +1,7 @@
+from bio import *
 for record in FASTQ('reads.fq'):
     print record.name
     print record.read
-    print record.comment
     print record.qual
+
 FASTA('genome.fa') |> seqs |> echo

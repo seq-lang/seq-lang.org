@@ -1,6 +1,7 @@
 def hypot(a: int, b: int) -> float:
-    x = a**2 + b**2
-    c = x ** 0.5
+    from math import sqrt
+    x = a**2. + b**2.
+    c = sqrt(x)
     return c
 
 print hypot(3, 4)

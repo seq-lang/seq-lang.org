@@ -1,8 +1,10 @@
-def is_own_revcomp(s: seq) -> bool:
+from bio import *
+
+def is_own_revcomp(s):
     match s:
-        case s'A...T' or s'T...A' or s'C...G' or s'G...C':
+        case 'A*T' | 'T*A' | 'C*G' | 'G*C':
             return is_own_revcomp(s[1:-1])
-        case s'':
+        case '':
             return True
         case _:
             return False

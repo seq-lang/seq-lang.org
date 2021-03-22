@@ -1,6 +1,9 @@
+from bio import *
+
 def minimizer[K](s: seq):
-    assert len(s) >= K.len()
-    kmer_min = K(s)
+    k = K.len()
+    assert len(s) >= k
+    kmer_min = K(s[:k])
     for kmer in s[1:].kmers[K](1):
         kmer = min(kmer, ~kmer)
         if kmer < kmer_min: kmer_min = kmer

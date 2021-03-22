@@ -1,3 +1,5 @@
+from bio import *
+
 def neighbors(kmer):
     for i in range(len(kmer)):
         for b in (k'A', k'C', k'G', k'T'):

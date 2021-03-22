@@ -255,8 +255,8 @@
                 document.getElementById('editor').style.fontSize = '20px';
 
                 var i = 0;
-                var txt = "s = s'ACGTACGT'    # sequence literal\nprint s[2:5]       # subsequence\nprint ~s           # reverse complement\nkmer = Kmer[8](s)  # convert to k-mer\n\n# iterate over length-3 subsequences\n# with step 2\nfor sub in s.split(3, step=2):\nprint sub[-1]  # last base\n\n# iterate over 2-mers with step 1\nfor kmer in sub.kmers[Kmer[2]](step=1):\nprint ~kmer  # '~' also works on k-mers";
-                var txt2 = "s = s'ACGTACGT'    # sequence literal\nprint s[2:5]       # subsequence\nprint ~s           # reverse complement\nkmer = Kmer[8](s)  # convert to k-mer\n\n# iterate over length-3 subsequences\n# with step 2\nfor sub in s.split(3, step=2):\n    print sub[-1]  # last base\n\n    # iterate over 2-mers with step 1\n    for kmer in sub.kmers[Kmer[2]](step=1):\n        print ~kmer  # '~' also works on k-mers";
+                var txt = "from bio import *\ns = s'ACGTACGT'    # sequence literal\nprint s[2:5]       # subsequence\nprint ~s           # reverse complement\nkmer = Kmer[8](s)  # convert to k-mer\n\n# iterate over length-3 subsequences, step 2\nfor sub in s.split(3, step=2):\nprint sub[-1]  # last base\n\n# iterate over 2-mers with step 1\nfor kmer in sub.kmers[Kmer[2]](step=1):\nprint ~kmer  # '~' also works on k-mers";
+                var txt2 = "from bio import *\ns = s'ACGTACGT'    # sequence literal\nprint s[2:5]       # subsequence\nprint ~s           # reverse complement\nkmer = Kmer[8](s)  # convert to k-mer\n\n# iterate over length-3 subsequences, step 2\nfor sub in s.split(3, step=2):\n    print sub[-1]  # last base\n\n    # iterate over 2-mers with step 1\n    for kmer in sub.kmers[Kmer[2]](step=1):\n        print ~kmer  # '~' also works on k-mers";
                 var speed = 50; /* The speed/duration of the effect in milliseconds */
 
                 function typeWriter() {

@@ -1,6 +1,7 @@
+from bio import *
 dna = s'ACGT'
 match dna:
-    case s'_C...T':
+    case '_C*T':
         print 'match'
     case _:
         print 'no match'

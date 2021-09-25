@@ -1,10 +1,9 @@
 from bio import *
 myseq  = s'CAATAGAGACTAAGCATTAT'
-stride = 2
 
 # explicit for-loop
-for subseq in myseq.kmers(stride, k=5):
+for subseq in myseq.kmers(k=5, step=2):
     print(subseq)
 
 # pipelined
-myseq |> kmers(stride, k=5) |> print
+myseq |> kmers(k=5, step=2) |> print

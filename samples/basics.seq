@@ -6,9 +6,9 @@ kmer = Kmer[8](s)   # convert to k-mer
 
 # iterate over length-3 subsequences
 # with step 2
-for sub in s.split(3, step=2):
+for sub in s.split(k=3, step=2):
     print(sub[-1])  # last base
 
     # iterate over 2-mers with step 1
-    for kmer in sub.kmers(step=1, k=2):
+    for kmer in sub.kmers(k=2, step=1):
         print(~kmer)  # '~' also works on k-mers

@@ -2,6 +2,6 @@ from bio import *
 dna = s'ACGTGG'
 
 # serial pipeline:
-dna |> kmers(step=1, k=2) |> print
+dna |> kmers(k=2, step=1) |> print
 # parallel pipeline:
-dna |> kmers(step=1, k=2) ||> print
+dna |> kmers(k=2, step=1) ||> print

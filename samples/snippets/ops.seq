@@ -1,7 +1,7 @@
 from bio import *
 q = s'ACGTA'
 t = s'ACAGT'
-print ~q, ~t  # reverse complement
-print q @ t   # sequence alignment
-print list(q.split(k=2, step=1))
-print list(t.kmers[Kmer[2]](step=1))
+print(~q, ~t)  # reverse complement
+print(q @ t)   # sequence alignment
+print(list(q.split(k=2, step=1)))
+print(list(t.kmers(step=1, k=2)))

@@ -4,4 +4,4 @@ def hypot(a: int, b: int) -> float:
     c = sqrt(x)
     return c
 
-print hypot(3, 4)
+print(hypot(3, 4))

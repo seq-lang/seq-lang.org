@@ -1,14 +1,14 @@
 from bio import *
-s = s'ACGTACGT'    # sequence literal
-print s[2:5]       # subsequence
-print ~s           # reverse complement
-kmer = Kmer[8](s)  # convert to k-mer
+s = s'ACGTACGT'     # sequence literal
+print(s[2:5])       # subsequence
+print(~s)           # reverse complement
+kmer = Kmer[8](s)   # convert to k-mer
 
 # iterate over length-3 subsequences
 # with step 2
 for sub in s.split(3, step=2):
-    print sub[-1]  # last base
+    print(sub[-1])  # last base
 
     # iterate over 2-mers with step 1
-    for kmer in sub.kmers[Kmer[2]](step=1):
-        print ~kmer  # '~' also works on k-mers
+    for kmer in sub.kmers(step=1, k=2):
+        print(~kmer)  # '~' also works on k-mers

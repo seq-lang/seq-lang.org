@@ -9,5 +9,5 @@ def is_own_revcomp(s):
         case _:
             return False
 
-print is_own_revcomp(s'ACGT')
-print is_own_revcomp(s'ATTA')
+print(is_own_revcomp(s'ACGT'))
+print(is_own_revcomp(s'ATTA'))

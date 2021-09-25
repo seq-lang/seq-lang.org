@@ -5,5 +5,5 @@ def de_bruijn_edge(a, b):
     b = b >> s'A'           # shift right to A: [GAG]C -> A[GAG]
     return a == b           # suffix of a == prefix of b
 
-print de_bruijn_edge(k'TGAG', k'GAGC')
-print de_bruijn_edge(k'TCAG', k'GAGC')
+print(de_bruijn_edge(k'TGAG', k'GAGC'))
+print(de_bruijn_edge(k'TCAG', k'GAGC'))

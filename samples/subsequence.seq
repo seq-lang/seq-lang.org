@@ -5,7 +5,7 @@ stride = 2
 
 # explicit for-loop
 for subseq in myseq.split(sublen, stride):
-    print subseq
+    print(subseq)
 
 # pipelined
-myseq |> split(sublen, stride) |> echo
+myseq |> split(sublen, stride) |> print

@@ -1,7 +1,7 @@
 from bio import *
 for record in FASTQ('reads.fq'):
-    print record.name
-    print record.read
-    print record.qual
+    print(record.name)
+    print(record.read)
+    print(record.qual)
 
-FASTA('genome.fa') |> seqs |> echo
+FASTA('genome.fa') |> seqs |> print

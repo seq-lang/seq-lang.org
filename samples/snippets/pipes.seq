@@ -1,7 +1,7 @@
 from bio import *
 dna = s'ACGTGG'
-K = Kmer[2]
+
 # serial pipeline:
-dna |> kmers[K](step=1) |> echo
+dna |> kmers(k=2, step=1) |> print
 # parallel pipeline:
-dna |> kmers[K](step=1) ||> echo
+dna |> kmers(k=2, step=1) ||> print

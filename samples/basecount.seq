@@ -20,4 +20,4 @@ def count_bases(s):
         case 'T*': return count_bases(s[1:]) + (0,0,0,1)
         case _: return BaseCount(0,0,0,0)
 
-print count_bases(s'ACCGGGTTTT')
+print(count_bases(s'ACCGGGTTTT'))

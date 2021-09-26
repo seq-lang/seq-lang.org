@@ -1,11 +1,9 @@
 from bio import *
 myseq  = s'CAATAGAGACTAAGCATTAT'
-sublen = 5
-stride = 2
 
 # explicit for-loop
-for subseq in myseq.split(sublen, stride):
-    print subseq
+for subseq in myseq.split(k=5, step=2):
+    print(subseq)
 
 # pipelined
-myseq |> split(sublen, stride) |> echo
+myseq |> split(k=5, step=2) |> print

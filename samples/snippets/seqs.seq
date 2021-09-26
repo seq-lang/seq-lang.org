@@ -1,7 +1,7 @@
 from bio import *
 dna = s'ACGTGG'
-print dna
+print(dna)
 kmer = Kmer[6](dna)
-print kmer
+print(kmer)
 protein = translate(dna)
-print protein
+print(protein)

@@ -1,6 +1,6 @@
 from C import sqrt(float) -> float
-print sqrt(100.)
+print(sqrt(100.))
 
 from python import \
   mymodule.func(List[int], str) -> int
-print func([1, 2, 3], 'foo')
+print(func([1, 2, 3], 'foo'))

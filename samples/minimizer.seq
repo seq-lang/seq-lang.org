@@ -1,12 +1,11 @@
 from bio import *
 
-def minimizer[K](s: seq):
-    k = K.len()
+def minimizer(s, k: Static[int]):
     assert len(s) >= k
-    kmer_min = K(s[:k])
-    for kmer in s[1:].kmers[K](1):
+    kmer_min = Kmer[k](s[:k])
+    for kmer in s[1:].kmers(k=k, step=1):
         kmer = min(kmer, ~kmer)
         if kmer < kmer_min: kmer_min = kmer
     return kmer_min
 
-print minimizer[Kmer[10]](s'ACGTACGTACGT')
+print(minimizer(s'ACGTACGTACGT', 10))

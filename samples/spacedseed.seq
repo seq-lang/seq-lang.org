@@ -8,5 +8,5 @@ def has_spaced_acgt(s):
         case _:
             return False
 
-print has_spaced_acgt(s'AAATCTGTTAAA')
-print has_spaced_acgt(s'ACGTACGTACGT')
+print(has_spaced_acgt(s'AAATCTGTTAAA'))
+print(has_spaced_acgt(s'ACGTACGTACGT'))

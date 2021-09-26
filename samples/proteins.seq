@@ -1,4 +1,4 @@
 from bio import *
 dna = s'AGGTCTAACGGC'
 protein = dna |> translate
-print protein
+print(protein)

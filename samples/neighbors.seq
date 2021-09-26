@@ -6,4 +6,4 @@ def neighbors(kmer):
             if kmer[i] != b:
                 yield kmer |> base(i, b)
 
-print list(neighbors(k'AGC'))
+print(list(neighbors(k'AGC')))
